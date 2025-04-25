@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .full
+        {
+            width: 30%;
+            height: 47vh;
+            background-color: aqua;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 1%;
+        }
+        label
+        {
+            display: block;
+            font-size: 20px;
+            margin-top: 1px;
+        }
+        input
+        {
+            width: 90%;
+            height: 5vh;
+            border-radius: 10px;
+            font-size: 15px;
+            border: none;
+            outline: none;
+            padding-left: 2%;
+            margin-top: 2%;
+        }
+        button
+        {
+            width: 33%;
+            height: 5vh;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+            font-size: 20px;
+            border-radius: 10px;
+            border: none;
+        }
+        .create
+        {
+            width: 17%;
+            height: 40vh;
+            background-color: red;
+            padding: 1% 2%;
+            border-radius: 10px;
+        }
+        #sheet{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            width: 100%;
+            margin-top: 1%;
+        }
+        p{
+            font-size: 20px;
+            color: white;
+            line-height: 30px;
+        }
+        @media(max-width:700px)
+        {
+            .create
+            {
+                width: 90%;
+                 height: 35vh;
+                 margin-left: auto;
+                 margin-right: auto;
+            }
+            #sheet
+            {
+                width: 60%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+            .full
+            {
+                width: 50%;
+                height: 50vh;
+            }
+            button
+            {
+                width: 50%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="full">
+        <label for="#">Your Name</label>
+        <input type="text" id="name">
+        <label for="#">Father's Name</label>
+        <input type="text" id="father">
+        <label for="#">Phone Name</label>
+        <input type="tel" id="num">
+        <label for="#">Deparment</label>
+        <input type="text" id="dep">
+        <button onclick="madhab()">Submit Form</button>
+    </div>
+    <div id="sheet">
+       
+    </div>
+    <script>
+        function madhab()
+        {
+            let a=document.getElementById('name').value;
+            let b=document.getElementById('father').value;
+            let c=document.getElementById('num').value;
+            let d=document.getElementById('dep').value;
+            if(a==""||b==""||c==""||d=="")
+            {
+                alert("Form Not Field")
+            }
+            else if(!/^[A-Z a-z]+$/.test(a))
+            {
+                alert("Name Enter Only Character");
+            }
+            else if(!/^[A-Z a-z]+$/.test(b))
+            {
+                alert("Father's Name Enter Only Character");
+            }
+            else if(!/^[0-9]+$/.test(c))
+            {
+                alert("pleace Enter Only Number");
+            }
+            else if(c.length!=10)
+            {
+                alert("Enter 10 Number");
+            }
+            else if(!/^[^\s@]+$/.test(d))
+            {
+                alert("Specific Charecter Not Suport");
+            }
+            else
+            {
+                let m=document.createElement("div");
+                m.className="create";
+                document.getElementById('sheet').appendChild(m);
+                 var p=document.createElement("p");
+                 p.innerHTML="Your Name: "+a;
+                 m.appendChild(p);
+                 var p=document.createElement("p");
+                 p.innerHTML="Fathers Name: "+b;
+                 m.appendChild(p);
+                 var p=document.createElement("p");
+                 p.innerHTML="Mobile Number: "+c;
+                 m.appendChild(p);
+                 var p=document.createElement("p");
+                 p.innerHTML="Deperment Name: "+d;
+                 m.appendChild(p);
+            }
+            
+        }
+    </script>
+</body>
+</html>
